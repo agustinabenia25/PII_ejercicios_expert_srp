@@ -7,6 +7,7 @@ namespace SRP
     {
         public string SectorShelf { get ; set; }
         public List<Book> Books { get ; set ;}
+        
         public Shelf(string SectorShelf)
         {
             this.SectorShelf = SectorShelf;
