@@ -1,49 +1,24 @@
 ﻿using System;
 using System.Text;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Library
 {
     public class AppointmentService
     {
-        public static string CreateAppointment(string name, string id, string phoneNumber, DateTime date, string appoinmentPlace, string doctorName)
+        public static int idunico = 0;
+        public static string CreateAppointment(string name, string id, string phoneNumber, DateTime date, string appointmentPlace, string doctorName)
         {
             StringBuilder stringBuilder = new StringBuilder("Scheduling appointment...\n");
-            Boolean isValid = true;
 
-            if (string.IsNullOrEmpty(name))
+            if (DataCheck.Check(name, id, phoneNumber, date, appointmentPlace, doctorName))
             {
-                stringBuilder.Append("Unable to schedule appointment, 'name' is required\n");
-                isValid = false;
+                stringBuilder.Append("Appointment scheduled");
             }
-
-            if (string.IsNullOrEmpty(id))
+            else
             {
-                stringBuilder.Append("Unable to schedule appointment, 'id' is required\n");
-                isValid = false;
-            }
-
-            if (string.IsNullOrEmpty(phoneNumber))
-            {
-                stringBuilder.Append("Unable to schedule appointment, 'phone number' is required\n");
-                isValid = false;
-            }
-
-            if (string.IsNullOrEmpty(appoinmentPlace))
-            {
-                stringBuilder.Append("Unable to schedule appointment, 'appoinment place' is required\n");
-                isValid = false;
-            }
-
-
-            if (string.IsNullOrEmpty(doctorName))
-            {
-                stringBuilder.Append("Unable to schedule appointment, 'doctor name' is required\n");
-                isValid = false;
-            }
-
-            if (isValid)
-            {
-                stringBuilder.Append("Appoinment scheduled");
+                stringBuilder.Append("Unable to schedule appointment");
             }
 
             return stringBuilder.ToString();
@@ -51,3 +26,7 @@ namespace Library
 
     }
 }
+/*
+    Esta clase no cumple con el principio SRP, ya que tiene dos responsabilidades.
+    Por un lado, crear la cita con el medico, y por el otro corroborar que los datos son validos.
+*/
