@@ -7,21 +7,22 @@ namespace Library
 {
     public class AppointmentService
     {
-        public static int idunico = 0;
-        public static string CreateAppointment(string name, string id, string phoneNumber, DateTime date, string appointmentPlace, string doctorName)
+        public int idunico {get ; set ;}
+        public string texto {get ; set ;}
+        private static int count = 52367;
+        public AppointmentService(string name, string id, int phoneNumber, DateTime date, string appointmentPlace, string doctorName, int age, string specialty)
         {
+            this.idunico = count;
+            count++;
             StringBuilder stringBuilder = new StringBuilder("Scheduling appointment...\n");
-
-            if (DataCheck.Check(name, id, phoneNumber, date, appointmentPlace, doctorName))
+            var resultado = DataCheck.Check(name, id, phoneNumber, date, appointmentPlace, doctorName, age, specialty);
+            stringBuilder.Append(resultado.Item1);
+            if (resultado.Item2)
             {
-                stringBuilder.Append("Appointment scheduled");
-            }
-            else
-            {
-                stringBuilder.Append("Unable to schedule appointment");
+                stringBuilder.Append($"Appointment Reference Number: {this.idunico}\n");
             }
 
-            return stringBuilder.ToString();
+            this.texto = stringBuilder.ToString();
         }
 
     }

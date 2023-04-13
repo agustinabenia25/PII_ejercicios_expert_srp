@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using Library;
 
 namespace Program
@@ -9,11 +10,11 @@ namespace Program
     {
         static void Main(string[] args)
         {
-            string appointmentResult = AppointmentService.CreateAppointment("Steven Jhonson", "986782342", "5555-555-555", DateTime.Now, "Wall Street", "Armand");
-            Console.WriteLine(appointmentResult);
+            AppointmentService appointment1 = new AppointmentService("Steven Jhonson", "4.921.839-5", 986782342, DateTime.Now, "Wall Street", "Armand", 25, "Cardiologo");
+            Console.WriteLine(appointment1.texto);
 
-            string appointmentResult2 = AppointmentService.CreateAppointment("Ralf Manson", "", "5555-555-555", DateTime.Now, "Queen Street", "");
-            Console.WriteLine(appointmentResult2);
+            AppointmentService appointment2 = new AppointmentService("Ralf Manson", "5555-555-555", 0, DateTime.Now, "Queen Street", "", -13, "");
+            Console.WriteLine(appointment2.texto);
         }
     }
 }
