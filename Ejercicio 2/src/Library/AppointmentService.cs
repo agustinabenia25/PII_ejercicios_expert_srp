@@ -9,7 +9,7 @@ namespace Library
     {
         public int idunico {get ; set ;}
         public string texto {get ; set ;}
-        private static int count = 52367;
+        private int count = 52367;
         public AppointmentService(string name, string id, int phoneNumber, DateTime date, string appointmentPlace, string doctorName, int age, string specialty)
         {
             this.idunico = count;

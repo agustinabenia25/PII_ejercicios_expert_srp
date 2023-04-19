@@ -10,7 +10,7 @@ namespace Library
         public bool isIdValid = false;
         public static (StringBuilder, bool) Check(string name, string id, int phoneNumber, DateTime date, string appointmentPlace, string doctorName, int age, string specialty)
         {
-            StringBuilder stringBuilder = new StringBuilder("DataCheck");
+            StringBuilder stringBuilder = new StringBuilder("DataCheck\n");
             Boolean isValid = true;
 
             if (string.IsNullOrEmpty(name))
