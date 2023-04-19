@@ -32,7 +32,8 @@ namespace SRP
             shelf3.ShelveBook(book3);
             shelf1.ShelveBook(book4);
 
-            Console.WriteLine(sector2.Shelves.ToArray()[0].Books.ToArray()[0].Title);
+            // Compruebo que el programa funciona.
+            Console.WriteLine($"El libro {sector2.Shelves.ToArray()[0].Books.ToArray()[0].Title} se encuentra en la repisa {sector2.Shelves.ToArray()[0].ShelfName} en el sector {sector2.LibrarySector}.");
         }
     }
 }
